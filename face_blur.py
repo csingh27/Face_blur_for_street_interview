@@ -25,11 +25,9 @@ while True:
                 bbox = int(bboxC.xmin * iw), int(bboxC.ymin * ih), \
                     int(bboxC.width * iw), int(bboxC.height * ih)
                 print(bbox)
-                cv2.rectangle(img,bbox, (255,0,0),2)
-                cv2.putText(img, "Face",
-                        (bbox[0],bbox[1] - 20),cv2.FONT_HERSHEY_PLAIN, 3, (255,255,0), 2)
-        cv2.waitKey(1)
-        cv2.imshow("Image",img)
+                # cv2.rectangle(img,bbox, (255,0,0),2)
+                # cv2.putText(img, "Face",
+                #      (bbox[0],bbox[1] - 20),cv2.FONT_HERSHEY_PLAIN, 3, (255,255,0), 2)
         factor = 3.0
         xmin = bbox[0]
         ymin = bbox[1]
@@ -42,6 +40,10 @@ while True:
             kW -= 1
         if kH % 2 == 0:
             kH -= 1
+        if(face.any()):
+            face = cv2.GaussianBlur(face, (kW,kH), 0)
         if(cv2.waitKey(1) & 0xFF==ord('q')):
             break;
+        cv2.waitKey(1)
+        cv2.imshow("Image",img)
     
