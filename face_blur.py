@@ -42,6 +42,7 @@ while True:
             kH -= 1
         if(face.any()):
             face = cv2.GaussianBlur(face, (kW,kH), 0)
+        img[ymin: ymin + h, xmin: xmin + w] = face
         if(cv2.waitKey(1) & 0xFF==ord('q')):
             break;
         cv2.waitKey(1)
