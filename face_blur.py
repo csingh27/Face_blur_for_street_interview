@@ -30,6 +30,18 @@ while True:
                         (bbox[0],bbox[1] - 20),cv2.FONT_HERSHEY_PLAIN, 3, (255,255,0), 2)
         cv2.waitKey(1)
         cv2.imshow("Image",img)
+        factor = 3.0
+        xmin = bbox[0]
+        ymin = bbox[1]
+        h = bbox[2]
+        w = bbox[3]
+        face = img[ymin: ymin + h, xmin: xmin + w]
+        kW = int(w / factor)
+        kH = int(h / factor)
+        if kW % 2 == 0:
+            kW -= 1
+        if kH % 2 == 0:
+            kH -= 1
         if(cv2.waitKey(1) & 0xFF==ord('q')):
             break;
-        
+    
