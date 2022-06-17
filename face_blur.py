@@ -13,3 +13,4 @@ while True:
         break;
     mpFaceDetection = mp.solutions.face_detection
     faceDetection = mpFaceDetection.FaceDetection()
+    mpDraw = mp.solutions.drawing_utils
