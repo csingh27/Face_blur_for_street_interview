@@ -1,5 +1,5 @@
 import cv2
-import mediapipe
+import mediapipe as mp
 import time
 import os 
 
@@ -11,3 +11,5 @@ while True:
     cv2.imshow("Image",img)
     if(cv2.waitKey(1) & 0xFF==ord('q')):
         break;
+    mpFaceDetection = mp.solutions.face_detection
+    faceDetection = mpFaceDetection.FaceDetection()
