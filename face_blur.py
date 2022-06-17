@@ -13,6 +13,9 @@ i = 0
 interview_start = 580
 interview_end = 8200
 
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter("OutputVideo/output.mp4",fourcc,30.0,(1280,720))
+
 while True:
     success, img = cap.read()
     i = i + 1
@@ -51,6 +54,4 @@ while True:
         if(cv2.waitKey(1) & 0xFF==ord('q')):
             break;
         cv2.waitKey(1)
-        cv2.imshow("Image",img)
-
-    
+        cv2.imshow("Image",img) 
