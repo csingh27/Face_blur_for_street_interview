@@ -54,4 +54,5 @@ while True:
         if(cv2.waitKey(1) & 0xFF==ord('q')):
             break;
         cv2.waitKey(1)
-        cv2.imshow("Image",img) 
+        cv2.imshow("Image",img)
+        out.write(img)
